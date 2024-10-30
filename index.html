@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amorantha - Vegan Mexican-Indian Fusion</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Georgia', serif;
+            background-color: #fbf4ed;
+            color: #4a3f35;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #e5d181;
+        }
+
+        .navbar-nav .nav-item.active .nav-link {
+            background-color: #6d6875;
+            color: white;
+        }
+
+        .hero {
+            height: 50vh;
+            background-image: url('welcome.jpg.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b3c8b2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .container {
+            flex: 1;
+            text-align: center; 
+        }
+
+        footer {
+            background-color: #516357;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h2, h3 {
+            font-family: 'Garamond', serif;
+            color: #6d6875;
+            margin-top: 20px;
+        }
+
+        @keyframes drop-in {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .navbar-brand img {
+            animation: drop-in 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="amoranthaLogo.png" alt="Amorantha Logo" style="height: 90px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="runoff.html">Run-off Page</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Amorantha</h1>
+            <p>Your destination for fresh vegan Mexican-Indian fusion.</p>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <h2>Our Philosophy</h2>
+        <p>Food is more than a meal; every dish we serve carries centuries of culture. The combination of piquant Indian flavors and savory Spanish cooking results in a menu of food items our customers love! Most importantly, we prioritize clean, ethically sourced, vegan food. We serve our customers high-quality farm-to-table dishes, and we aim for everyone to have the best dining experience possible.</p>
+        <p>By getting our ingredients directly from farms that grow crops native to India and Spain, we encapture the authentic feel of their cuisine and ensure the freshness of our food. We serve our customers locally sourced, seasonal ingredients to guarantee each meal is environmentally friendly. We are focused on sustainability by managing waste efficiently and therefore reducing our carbon footprint.</p>
+    </div>
+
+    <footer>
+        <p>TSA24-25 Webmaster</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
