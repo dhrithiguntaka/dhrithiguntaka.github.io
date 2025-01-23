@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Amorantha</title>
+    <title>About Us -Amorantha </title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -13,14 +13,7 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-        }
-
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             font-family: 'Georgia', serif;
             background-color: #fbf4ed;
             color: #4a3f35;
@@ -30,26 +23,147 @@
             background-color: #e5d181;
         }
 
+        .navbar-nav .nav-item .nav-link {
+            color: #4a3f35;
+        }
+
         .hero {
             height: 50vh;
-            background-image: url('about.webp'); 
+            background-image: url('welcome.jpg.webp');
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #ffffff;
+            color: #b3c8b2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             text-align: center;
+            padding: 20px;
         }
 
         .hero h1 {
             font-size: 3rem;
         }
 
-        .container {
-            flex: 1;
+        .process-section {
+            background-color: #f4e8d1;
+            padding: 60px 20px;
             text-align: center;
+        }
+
+        .process-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .process-step {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            transform: translateX(-200%);
+        }
+
+        .process-step:nth-child(even) {
+            transform: translateX(200%);
+        }
+
+        .process-step.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .process-step img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .process-step h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #4a3f35;
+        }
+
+        .process-step p {
+            font-size: 1.2rem;
+            color: #4a3f35;
+        }
+
+        .team-section {
+            background-color: #fbf4ed;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #4a3f35;
+        }
+        
+        .team-section h5 {
+             margin-bottom: 30px; 
+             font-size: 1.2rem;
+             color: #4a3f35;
+}
+
+        .team-tiles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .team-tile {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 90%;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .team-tile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-tile h4 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #4a3f35;
+        }
+
+        .description {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #4a3f35;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         footer {
@@ -59,10 +173,26 @@
             text-align: center;
         }
 
-        h2, h3 {
-            font-family: 'Garamond', serif;
-            color: #6d6875;
-            margin-top: 20px;
+        @media (min-width: 1200px) {
+            .team-tiles {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1199px) and (min-width: 768px) {
+            .team-tiles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .team-tiles {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                gap: 40px;
+            }
         }
     </style>
 </head>
@@ -79,31 +209,243 @@
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="runoff.html">Run-off Page</a></li>
+                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
+                <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
             </ul>
         </div>
+        <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
+            Cart <span id="cart-count" class="badge badge-pill badge-primary">0</span>
+        </button>
     </nav>
 
     <header class="hero">
-        <div>
-            <h1>About Us</h1>
-            <p>Discover our story and the flavors we bring to life.</p>
+        <div class="hero-text">
+            <h1>Welcome to Amorantha</h1>
+            <p>Your destination for fresh vegan Mexican-Indian fusion.</p>
         </div>
     </header>
 
-    <div class="container mt-4">
-        <h2>Amorantha combines the Spanish word for love, Amor, and the name of a staple grain in Indian cuisine, Amaranth.</h2>
-        <p>         </p>
-        <p>This playful mix of words reflects our restaurant's Indian and Spanish fusion cuisine and the love we put into our dishes.</p>
-        <p>Our restaurant's colors are yellow, muave, and green. They embody the vibrancy of our meals and the richness of the cultures they represent. These colors are recognized in the many meals of those countries as well- mauve can evoke a sense of elegance and sophistication, blending both cultures' rich aesthetics; rice and spice usage represents yellow; and the abundance of plant-based meals expresses the green portion.</p>
+    
+
+    <div class="process-section">
+        <h2>Our Process</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <img src="processImages/process1.png" alt="Step 1">
+                <h3>Purpose - Health and Sustainability</h3>
+                <p>At Amorantha, we are committed to serving clean, ethically sourced, and plant-based cuisine that nourishes both the body and the planet. By placing sustainability as our top priority, we offer a dining experience that is not only exceptional in flavor but is also in harmony with the Earth, fostering a healthy lifestyle with every bite. All our produce is cultivated directly on our on-site farm, ensuring that every dish is prepared with the freshest and most vibrant ingredients available.</p>
+            </div>
+            <div class="process-step">
+                <img src="processImages/process2.png" alt="Step 2">
+                <h3>Ethical Sourcing and Zero-Waste Philosophy</h3>
+                <p>We embrace a zero-waste philosophy, composting every food scrap, and uphold a strict policy of never using animal products or dairy, making every meal fully vegan. Our ingredients are grown without pesticides, adhering to organic practices that prioritize both personal health and environmental well-being.</p>
+            </div>
+            <div class="process-step">
+                <img src="processImages/process3.png" alt="Step 3">
+                <h3>Prep Process</h3>
+                <p>Our preparation process at Amorantha is built on a foundation of care, freshness, and expertise. Each day, our chefs hand-pick the finest ingredients directly from our on-site farm, ensuring that only the best produce is used in every meal. With meticulous attention to detail, our chefs expertly prepare each dish, preserving its natural flavors and nutrients..</p>
+            </div>
+            <div class="process-step">
+                <img src="processImages/process4.png" alt="Step 4">
+                <h3>Farm-to-Plate Philosophy</h3>
+                <p>From farm to plate, our commitment to freshness and sustainability is reflected throughout all our dishes, creating a dining experience that is as vibrant and exceptional as the ingredients themselves.</p>
+            </div>
+        </div>
     </div>
 
+    <div class="team-section">
+        <h2>Meet the Team</h2>
+        <h5>At Amorantha, we take pride in the hard work our chefs and farmers put into each and every meal. They work together to create each dish with love and consideration for the environment. Our staff makes sure that every plate is a tribute to sustainability and quality by cultivating and harvesting fresh, organic foods every day on our on-site farm. </h4>
+
+        <div class="team-tiles">
+            <div class="team-tile" onclick="showDescription(0)">
+                <img src="teamPics/chef1.png" alt="Chef Lorena Martinez">
+                <h4>Chef Lorena Martinez</h4>
+            </div>
+            <div class="team-tile" onclick="showDescription(1)">
+                <img src="teamPics/chef2.png" alt="Chef Hemant Kaur">
+                <h4>Chef Hemant Kaur</h4>
+            </div>
+            <div class="team-tile" onclick="showDescription(2)">
+                <img src="teamPics/chef3.png" alt="Chef Lucia Mehra">
+                <h4>Chef Lucia Mehra</h4>
+            </div>
+            <div class="team-tile" onclick="showDescription(3)">
+                <img src="teamPics/farmer1.png" alt="Farmer Robert Glinsky">
+                <h4>Farmer Robert Glinsky</h4>
+            </div>
+            <div class="team-tile" onclick="showDescription(4)">
+                <img src="teamPics/manager1.png" alt="Manager Rajiv Kapoor">
+                <h4>Manager Rajiv Kapoor</h4>
+            </div>
+            <div class="team-tile" onclick="showDescription(5)">
+                <img src="teamPics/farmer2.png" alt="Nutritionist Maya Patel">
+                <h4>Nutritionist Maya Patel</h4>
+            </div>
+        </div>
+        <div class="description" id="description-box">
+            <h4>Click on a team member to learn more about them.</h4>
+            <p></p>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items"></div>
+                    <div id="cart-total" class="mt-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <footer>
-        <p>TSA24-25 Webmaster</p>
+        <p>© 2025 Amorantha. All rights reserved.</p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        let cart = [];
+
+function updateCart() {
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        cartCount.textContent = cart.length;
+    }
+
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+
+    if (cartItemsContainer) {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `${item.name} - $${item.price}`;
+            cartItemsContainer.appendChild(cartItem);
+            total += parseFloat(item.price);
+        });
+
+        if (cartTotal) {
+            cartTotal.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCart();
+
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty.');
+            } else {
+                localStorage.removeItem('cart');
+                alert('Thank you for your purchase!');
+                updateCart();
+            }
+        });
+    }
+});
+;
+
+
+
+
+function handleScrollAnimation() {
+    const steps = document.querySelectorAll(".process-step");
+    steps.forEach(step => {
+        const rect = step.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top <= window.innerHeight) {
+            step.classList.add("active");
+        }
+    });
+}
+document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("scroll", handleScrollAnimation);
+    handleScrollAnimation(); 
+});
+
+    
+    
+
+const teamDescriptions = [
+    {
+        name: "Chef Lorena Martinez",
+        description: "With over 15 years of culinary experience, Chef Martinez is the heart of Amorantha’s Kitchen. Each one of her dishes is a harmonious blend of passion and precision, and her creations are nothing short of extraordinary. Chef Martinez leaves no detail to chance, sourcing the finest, freshest ingredients to ensure each meal not only delights the senses but also tells a story of cultural fusion."
+    },
+    {
+        name: "Chef Hemant Kaur",
+        description: "Introduced to cooking by his mother in India, Hemant Kaur discovered his true calling in the kitchen. Chef Kaur carries forward a legacy of passion and skill, and leads Amorantha’s kitchen with unparalleled expertise. Renowned for his ability to seamlessly blend the bold, earthy flavors of Indian cuisine with the vibrant, colorful elements of Spanish cooking, Chef Kaur redefines culinary boundaries."
+    },
+    {
+        name: "Chef Lucia Mehra",
+        description: "Born to a Spanish mother and Indian father, Chef Mehra embodies the perfect fusion of two rich culinary traditions. Growing up surrounded by the flavors of both Spain and India, Lucia learned early on how to combine the elegance of Spanish pastries with the boldness of Indian sweets. With a focus on plant-based, innovative desserts, Chef Mehra brings her multicultural heritage to life with every dish."
+    },
+    {
+        name: "Farmer Robert Glinsky",
+        description: "Born in California, raised in Texas, Robert developed a passion for farming at a young age. Glinsky is passionate about sustainable farming, and every harvest reflects his commitment to growing the best organic products. His dedication to sustainability and quality guarantees that the foods he cultivates are not only fresh but also represent the principles of nature appreciation and care."
+    },
+    {
+        name: "Manager Rajiv Kapoor",
+        description: "Mr. Kapoor, coming from a family that celebrated food as a way of bringing people together, developed a deep appreciation for the rich culinary traditions of India. Rajiv began his career managing a small but beloved cafe in Delhi, where he quickly became known for his charm, friendliness, and overall welcoming attitude. Rajiv’s expertise in creating memorable dining experiences earned him accolades and trust wherever he went. When Kapoor joined Amorantha, he strived to bring with him not only his talent, but also his vision for blending Indian and Spanish cuisine to honor tradition, while embracing modern sustainability and innovation. Under his leadership, every detail of Amorantha is curated with love, care, and a deep respect for the farm-to-table philosophy."
+    },
+    {
+        name: "Farmer Jake Thompson",
+        description: "Thompson grew up on a ranch in Colorado, where he developed a deep appreciation for the land and hard work. Over time, he became passionate about sustainable farming, believing that taking care of the soil is just as important as growing the crops. Jake’s goal is to provide healthy food while respecting the environment. For him, farming is all about balancing nature and community, and every harvest reflects his commitment to that balance."
+    }
+];
+
+function showDescription(index) {
+    const descriptionBox = document.getElementById('description-box');
+    descriptionBox.innerHTML = `<h4>${teamDescriptions[index].name}</h4><p>${teamDescriptions[index].description}</p>`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const processSteps = document.querySelectorAll('.process-step');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 
+    });
+
+    processSteps.forEach((step) => {
+        observer.observe(step);
+    });
+});
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+
 </body>
 </html>
+
