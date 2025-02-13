@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations - Amorantha</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #516357;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Lato', sans-serif;
+            background-color: #c3dcc7;
+            color: #6d6875;
+            font-family: 'Georgia', serif;
+            background-color: #fbf4ed;
+            color: #4a3f35;
+
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #516357;
+        }
+        
+        .hero-text h1 {
+            font-size: 4rem; 
+        }
+        
+        .hero-text h2 {
+            font-size: 2.5rem; 
+        }
+
+        .navbar {
+            background-color: #e5d181;
+        }
+        
+        .hero-text {
+            background-image: url('reservationsImages/reservations1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;     
+            height: 100vh; 
+            text-align: center;     
+            color: #eef3ee;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+        .hero-text h1, .hero-text h2 {
+             position: relative;
+            z-index: 1;
+        }
+
+        .hero-text button {
+            background-color: #e5d181; 
+            color: #516357; 
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-text button:hover {
+            background-color: #516357; 
+            color: #e5d181; 
+        }
+        .container-flex {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .reservation-section {
+            background:  #f8f8f8;
+            padding: 30px;
+            text-align: center;
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .reservation-section input,
+        .reservation-section textarea {
+            width: 100%;   
+            padding: 12px; 
+            margin: 10px 0;   
+            border: 1px solid #ccc;
+            border-radius:5px;
+            font-family:'Lato',sans-serif;
+            font-size:1rem;
+            box-shadow:inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .reservation-section input:focus,
+        .reservation-section textarea:focus {
+            border-color: #e5d181; 
+            outline: none;
+        }
+
+        .reservation-section button {
+            background-color: #516357;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .reservation-section button:hover {
+            background-color: #e5d181; 
+            color: #516357; 
+        }
+        .service-hours {
+            width: 25%;
+            padding: 20px;
+            background: white;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
+
+        .image-gallery {
+            width: 25%;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-gallery img {
+            width: 90%;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        @media screen and (max-width: 768px) {
+            .container-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .reservation-section,
+            .service-hours,
+            .image-gallery {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+
+            .image-gallery img {
+                width: 100%;
+            }
+        }
+
+        .notification {
+            display: none;
+            background-color: #516357;
+            color: white;
+            padding: 10px;
+            margin-top: 15px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        function bookTable() {
+            let name = document.getElementById("name").value.trim();
+            let contact = document.getElementById("contact").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let people = document.getElementById("people").value.trim();
+            let date = document.getElementById("date").value.trim();
+            let time = document.getElementById("time").value.trim();
+            let request = document.getElementById("request").value.trim();
+
+            if (name === "" || contact === "" || email === "" || people === "" || date === "" || time === "") {
+                alert("Please fill out all fields before booking.");
+                return;
+            }
+
+            document.getElementById("notification").style.display = "block";
+        }
+    </script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="AmoranthaLogo.png" alt="Amorantha Logo" style="height: 90px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
+                <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
+            </ul>
+        </div>
+        <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
+            Cart <span id="cart-count" class="badge badge-pill badge-primary">0</span>
+        </button>
+        </div>
+    </nav>
+
+    <div class="hero-text">
+        <h1>Your Table</h1>
+        
+    </div>
+
+    <div class="container-flex">
+        <div class="service-hours">
+            <h2>Hours of Service</h2>
+            <p>Monday - Friday: 11 AM - 10 PM</p>
+            <p>Saturday - Sunday: 9 AM - 11 PM</p>
+            <p>Brunch: Sat - Sun: 11 AM - 4 PM</p>
+        </div>
+
+        <div class="reservation-section">
+            <h2>Make a Reservation</h2>
+            <p>Reserve a table and enjoy a delightful experience at Amorantha.</p>
+            <form>
+                <input type="text" id="name" placeholder="Name">
+                <input type="text" id="contact" placeholder="Contact Number"> 
+                <input type="email" id="email" placeholder="Email Address">
+                <input type="text" id="people" placeholder="Number of People">
+                <input type="date" id="date">
+                <input type="text" id="time" placeholder="Time">
+                <textarea id="request" placeholder="Special Requests"></textarea>
+                <button type="button" onclick="bookTable()">Book Now</button>
+            </form>
+            <div id="notification" class="notification">
+                Reservation confirmed! Please check your email for confirmation. We look forward to serving you! 
+            </div>
+        </div>
+
+        <div class="image-gallery">
+            <h2>Our Ambience</h2>
+            <img src="reservationsImages/ambience2.jpg" alt="Restaurant Image">
+            <img src="reservationsImages/ambience1.jpg" alt="Restaurant Image">
+            <img src="reservationsImages/ambience3.jpg" alt="Restaurant Image">
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Amorantha | All Rights Reserved
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+    
+        function updateCart() {
+    localStorage.setItem('cart', JSON.stringify(cart)); 
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        cartCount.textContent = cart.length; 
+    }
+    displayCart(); 
+}
+
+    
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+    
+        function displayCart() {
+            if (!cartItemsContainer) return;
+    
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `${item.name} - $${item.price}`;
+                cartItemsContainer.appendChild(cartItem);
+                total += parseFloat(item.price);
+            });
+    
+            const totalItem = document.createElement('div');
+            totalItem.classList.add('cart-item');
+            totalItem.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+            cartItemsContainer.appendChild(totalItem);
+        }
+    
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const name = event.target.getAttribute('data-name');
+                const price = event.target.getAttribute('data-price');
+                addToCart(name, price);
+            });
+        });
+    
+        const checkoutButton = document.getElementById('checkout-button');
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', () => {
+                alert('Order Placed!');
+                cart = [];
+                updateCart(); 
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+    cart = JSON.parse(localStorage.getItem('cart')) || []; 
+    updateCart(); 
+});
+    </script>
+
+
+</body>
+</html>

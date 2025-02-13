@@ -72,6 +72,8 @@
                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
                 <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
+           
             </ul>
         </div>
         <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
@@ -83,6 +85,13 @@
         <h2>References/Sources</h2>
         <iframe src="tsa references.pdf" width="100%" height="800px" style="border: 2px solid #6d6875;"></iframe>
         <p> <a href="tsa references.pdf" target="_blank">Click here to view!</a></p>
+    </div>
+
+
+    <div class="container">
+        <h2>Plan of Work Log</h2>
+        <iframe src="plan-of-work-log.pdf" width="100%" height="800px" style="border: 2px solid #6d6875;"></iframe>
+        <p> <a href="plan-of-work-log.pdf" target="_blank">Click here to view!</a></p>
     </div>
 
     <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
@@ -115,54 +124,66 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        let cart = [];
-
-function updateCart() {
-    cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+    
+        function updateCart() {
+    localStorage.setItem('cart', JSON.stringify(cart)); 
     const cartCount = document.getElementById('cart-count');
     if (cartCount) {
-        cartCount.textContent = cart.length;
+        cartCount.textContent = cart.length; 
     }
-
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
-
-    if (cartItemsContainer) {
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        cart.forEach(item => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `${item.name} - $${item.price}`;
-            cartItemsContainer.appendChild(cartItem);
-            total += parseFloat(item.price);
-        });
-
-        if (cartTotal) {
-            cartTotal.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
-        }
-    }
+    displayCart(); 
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateCart();
-
-    const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('Your cart is empty.');
-            } else {
-                localStorage.removeItem('cart');
-                alert('Thank you for your purchase!');
-                updateCart();
-            }
+    
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+    
+        function displayCart() {
+            if (!cartItemsContainer) return;
+    
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `${item.name} - $${item.price}`;
+                cartItemsContainer.appendChild(cartItem);
+                total += parseFloat(item.price);
+            });
+    
+            const totalItem = document.createElement('div');
+            totalItem.classList.add('cart-item');
+            totalItem.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+            cartItemsContainer.appendChild(totalItem);
+        }
+    
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const name = event.target.getAttribute('data-name');
+                const price = event.target.getAttribute('data-price');
+                addToCart(name, price);
+            });
         });
-    }
+    
+        const checkoutButton = document.getElementById('checkout-button');
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', () => {
+                alert('Order Placed!');
+                cart = [];
+                updateCart(); 
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+    cart = JSON.parse(localStorage.getItem('cart')) || []; 
+    updateCart(); 
 });
-;
     </script>
 </body>
 </html>

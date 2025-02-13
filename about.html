@@ -211,6 +211,8 @@
                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
                 <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
+
             </ul>
         </div>
         <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
@@ -256,7 +258,8 @@
     <div class="team-section">
         <h2>Meet the Team</h2>
         <h5>At Amorantha, we take pride in the hard work our chefs and farmers put into each and every meal. They work together to create each dish with love and consideration for the environment. Our staff makes sure that every plate is a tribute to sustainability and quality by cultivating and harvesting fresh, organic foods every day on our on-site farm. </h4>
-
+           
+           
         <div class="team-tiles">
             <div class="team-tile" onclick="showDescription(0)">
                 <img src="teamPics/chef1.png" alt="Chef Lorena Martinez">
@@ -285,8 +288,8 @@
         </div>
         <div class="description" id="description-box">
             <h4>Click on a team member to learn more about them.</h4>
-            <p></p>
-        </div>
+            <p>   </p>
+
     </div>
 
 
@@ -318,53 +321,66 @@
     </footer>
 
     <script>
-        let cart = [];
-
-function updateCart() {
-    cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+    
+        function updateCart() {
+    localStorage.setItem('cart', JSON.stringify(cart)); 
     const cartCount = document.getElementById('cart-count');
     if (cartCount) {
-        cartCount.textContent = cart.length;
+        cartCount.textContent = cart.length; 
     }
-
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
-
-    if (cartItemsContainer) {
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        cart.forEach(item => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `${item.name} - $${item.price}`;
-            cartItemsContainer.appendChild(cartItem);
-            total += parseFloat(item.price);
-        });
-
-        if (cartTotal) {
-            cartTotal.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
-        }
-    }
+    displayCart(); 
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateCart();
-
-    const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('Your cart is empty.');
-            } else {
-                localStorage.removeItem('cart');
-                alert('Thank you for your purchase!');
-                updateCart();
-            }
+    
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+    
+        function displayCart() {
+            if (!cartItemsContainer) return;
+    
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `${item.name} - $${item.price}`;
+                cartItemsContainer.appendChild(cartItem);
+                total += parseFloat(item.price);
+            });
+    
+            const totalItem = document.createElement('div');
+            totalItem.classList.add('cart-item');
+            totalItem.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+            cartItemsContainer.appendChild(totalItem);
+        }
+    
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const name = event.target.getAttribute('data-name');
+                const price = event.target.getAttribute('data-price');
+                addToCart(name, price);
+            });
         });
-    }
-});
+    
+        const checkoutButton = document.getElementById('checkout-button');
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', () => {
+                alert('Order Placed!');
+                cart = [];
+                updateCart(); 
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+    cart = JSON.parse(localStorage.getItem('cart')) || []; 
+    updateCart(); 
+})
 ;
 
 
@@ -430,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.1 
+        threshold: 0.1
     });
 
     processSteps.forEach((step) => {
