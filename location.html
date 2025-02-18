@@ -5,9 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Us! - Amorantha</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        * {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+      <style>
+#cartModal {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #516357;
+    }
+
+
+       .footer-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .social-media {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-icon {
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .footer-separator {
+        width: 2px;
+        height: 30px;
+        background-color: #ccc;
+    }
+
+    .review-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .review-btn:hover {
+        background-color: #45a049;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        max-width: 90%;
+        background: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .popup-content {
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    textarea {
+        width: 100%;
+        height: 120px;
+        margin: 10px 0;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .submit-btn {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .submit-btn:hover {
+        background-color: #007bb5;
+    } 
+     * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -29,15 +128,16 @@
             justify-content: space-between;
             font-family: 'Georgia', serif;
             background-color: #899c8c;
-            color: #6d6875;
+            color: #2a3b37;
         }
 
         .navbar {
+            font-size: 16px;
             background-color: #e5d181;
         }
         
         .hero-text {
-            background-image: url('locationImages/location.jpg');
+            background-image: url('locationImages/location.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -51,6 +151,9 @@
             margin: 0;               
             padding: 0;             
             }
+
+
+
 
 .hero-text h1, .hero-text p {
     margin: 0;               
@@ -95,6 +198,50 @@ iframe {
 
        
 
+
+.section-wrapper {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           gap: 2rem;
+           padding: 5vh 0;
+       }
+       .social-media {
+           margin-top: 7px;
+           text-align: center;
+       }
+
+
+
+
+
+
+
+
+       .social-icon {
+           font-size: 24px;
+           margin: 0 10px;
+           color: #4a3f35;
+           transition: color 0.3s ease;
+       }
+
+
+
+
+
+
+
+
+       .social-icon:hover {
+           color: #e5d181;
+       }
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -110,11 +257,13 @@ iframe {
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
                 <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
                 <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
-           
-            </ul>
+                <li class="nav-item"><a class="nav-link" href="events&news.html">Events & News</a></li>
+                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
+
+ 
+             </ul>
         </div>
         <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
             Cart <span id="cart-count" class="badge badge-pill badge-primary">0</span>
@@ -128,52 +277,49 @@ iframe {
     
 
         <div class="map-container">
-            <!-- Los Angeles Location -->
             <div class="map-item">
+                <h1>  </h1>
                 <h3>Los Angeles, CA</h3>
-                <a 
-                   href="https://www.google.com/maps?q=34.052235,-118.243683&z=15" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.914233107375!2d-118.24587228442024!3d34.05223598060227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c7b6a5e2b8f7%3A0x7f8233e1f282e53a!2sOpen%20Field%2C%20Los%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                        allowfullscreen 
-                        loading="lazy">
-                    </iframe>
-                </a>
-            </div>
+                <p>120 N Broadway, Los Angeles, CA 90012</p>
+                <p><strong>Timings:</strong> Mon-Sun: 9 AM - 10 PM</p>
+                <p><strong>Phone:</strong> 123-456-7890</p>
+                <img src="locationImages/la.jpg" alt="Los Angeles Store" class="img-fluid mb-3">
 
-            <!-- San Francisco Location -->
+                <a href="https://www.google.com/maps?q=34.052235,-118.243683&z=15" target="_blank" rel="noopener noreferrer">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.914233107375!2d-118.24587228442024!3d34.05223598060227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c7b6a5e2b8f7%3A0x7f8233e1f282e53a!2sOpen%20Field%2C%20Los%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
+                </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=34.052235,-118.243683" target="_blank" class="btn btn-primary mt-2">Get Directions</a>
+            </div>
+    
             <div class="map-item">
+                <h1>  </h1>
                 <h3>San Francisco, CA</h3>
-                <a 
-                   href="https://www.google.com/maps?q=37.774929,-122.419416&z=15" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835624380042!2d-122.42177828431643!3d37.77492937975808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808581cf9ad4bffb%3A0xa2c662f703f022!2sOpen%20Field%2C%20San%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000001!5m2!1sen!2sus" 
-                        allowfullscreen 
-                        loading="lazy">
-                    </iframe>
-                </a>
-            </div>
+                <p>20 S Van Ness Ave, San Francisco, CA 94103</p>
+                <p><strong>Timings:</strong> Mon-Sun: 8 AM - 11 PM</p>
+                <p><strong>Phone:</strong> 098-765-4321</p>
+                <img src="locationImages/sanfran.jpg" alt="San Francisco Store" class="img-fluid mb-3">
 
-            <!-- Alpharetta Location -->
-            <div class="map-item">
-                <h3>Alpharetta, GA</h3>
-                <a 
-                   href="https://www.google.com/maps?q=34.075375,-84.29409&z=15" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.537854589029!2d-84.29627878442232!3d34.07537537960466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f504d4598c1fb1%3A0xaf5b9ffdfc70200e!2sOpen%20Field%2C%20Alpharetta%2C%20GA!5e0!3m2!1sen!2sus!4v1700000000002!5m2!1sen!2sus" 
-                        allowfullscreen 
-                        loading="lazy">
-                    </iframe>
+                <a href="https://www.google.com/maps?q=37.774929,-122.419416&z=15" target="_blank" rel="noopener noreferrer">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835624380042!2d-122.42177828431643!3d37.77492937975808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808581cf9ad4bffb%3A0xa2c662f703f022!2sOpen%20Field%2C%20San%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000001!5m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
                 </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=37.774929,-122.419416" target="_blank" class="btn btn-primary mt-2">Get Directions</a>
+            </div>
+    
+            <div class="map-item">
+                <h1>  </h1>
+                <h3>Alpharetta, GA</h3>
+                <p>2855 Old Milton Pkwy, Alpharetta, GA 30009</p>
+                <p><strong>Timings:</strong> Mon-Sun: 10 AM - 9 PM</p>
+                <p><strong>Phone:</strong> 223-344-5566</p>
+                <img src="locationImages/alpha.jpg" alt="Alpharetta Store" class="img-fluid mb-3">
+
+                <a href="https://www.google.com/maps?q=34.075375,-84.29409&z=15" target="_blank" rel="noopener noreferrer">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.537854589029!2d-84.29627878442232!3d34.07537537960466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f504d4598c1fb1%3A0xaf5b9ffdfc70200e!2sOpen%20Field%2C%20Alpharetta%2C%20GA!5e0!3m2!1sen!2sus!4v1700000000002!5m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
+                </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=34.075375,-84.29409" target="_blank" class="btn btn-primary mt-2">Get Directions</a>
             </div>
         </div>
-    </main>
+    
 
     <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -197,16 +343,71 @@ iframe {
     </div>
 
     <footer>
-        <p>TSA24-25 Webmaster</p>
+        <div class="footer-container">
+            <div class="social-media">
+                <a href="https://m.facebook.com/61573194025918" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/amorantha.restaurant/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@amorantha.restaur" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+    
+            <div class="footer-separator"></div>
+    
+            <button class="review-btn" onclick="openReviewPopup()">Leave a Review</button>
+        </div>
+    
+        <p class="footer-note">TSA24-25 Webmaster</p>
     </footer>
+    
+    <div id="review-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeReviewPopup()">&times;</span>
+            <h2>Leave a Review</h2>
+            <textarea id="review-text" placeholder="Write your review here..."></textarea>
+            <button class="submit-btn" onclick="submitReview()">Submit</button>
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || []; 
+       
+       function openReviewPopup() {
+        document.getElementById("review-popup").style.display = "block";
+    }
+
+    function closeReviewPopup() {
+        document.getElementById("review-popup").style.display = "none";
+    }
+
+    function submitReview() {
+        let reviewText = document.getElementById("review-text").value;
+        if (reviewText.trim() === "") {
+            alert("Please enter a review before submitting.");
+            return;
+        }
+        alert("Thank you for your review!");
+        document.getElementById("review-text").value = "";
+        closeReviewPopup();
+    }
+
+
+       
+       
+       
+       
+       
+       
+       let cart = JSON.parse(localStorage.getItem('cart')) || []; 
         const cartCount = document.getElementById('cart-count');
         const cartItemsContainer = document.getElementById('cart-items');
     

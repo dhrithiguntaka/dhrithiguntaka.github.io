@@ -5,9 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us -Amorantha </title>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        * {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+ 
+ <style>
+
+
+#cartModal {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #516357;
+    }
+       .footer-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .social-media {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-icon {
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .footer-separator {
+        width: 2px;
+        height: 30px;
+        background-color: #ccc;
+    }
+
+    .review-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .review-btn:hover {
+        background-color: #45a049;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        max-width: 90%;
+        background: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .popup-content {
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    textarea {
+        width: 100%;
+        height: 120px;
+        margin: 10px 0;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .submit-btn {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .submit-btn:hover {
+        background-color: #007bb5;
+    } 
+
+       #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.73; 
+}
+
+
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -21,7 +135,8 @@
 
         .navbar {
             background-color: #e5d181;
-        }
+            font-size: 16px;
+        } 
 
         .navbar-nav .nav-item .nav-link {
             color: #4a3f35;
@@ -45,59 +160,79 @@
             font-size: 3rem;
         }
 
-        .process-section {
-            background-color: #f4e8d1;
-            padding: 60px 20px;
-            text-align: center;
-        }
+       
 
-        .process-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+.process-section {
+    position: relative;
+    text-align: center;
+    padding-top: 1.7%;
+    padding-bottom: 5%;
 
-        .process-steps {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            justify-items: center;
-        }
+}
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
 
-        .process-step {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            opacity: 0;
-            transform: translateX(-200%);
-        }
 
-        .process-step:nth-child(even) {
-            transform: translateX(200%);
-        }
 
-        .process-step.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
 
-        .process-step img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 15px;
-        }
+.process-section h2 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    color:#f7efef
+}
 
-        .process-step h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #4a3f35;
-        }
+.process-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-items: center;
+    max-width: 1200px; 
+    width: 90%; 
+    margin: 0 auto; 
+}
 
-        .process-step p {
-            font-size: 1.2rem;
-            color: #4a3f35;
-        }
+.process-step {
+    background-color: #fff;
+    border: 1px solid #ddd;https: //www .pexels .com/video/group of people eating together -3245641px /mp 4px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 2s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateX(-200%);
+}
+x
+.process-step:nth-child(even) {
+    transform: translateX(200%);
+}
+
+.process-step.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.process-step img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.process-step h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #4a3f35;
+}
+
+.process-step p {
+    font-size: 1.2rem;
+    color: #4a3f35;
+}
 
         .team-section {
             background-color: #fbf4ed;
@@ -115,6 +250,7 @@
              margin-bottom: 30px; 
              font-size: 1.2rem;
              color: #4a3f35;
+             padding: 10px 20px;
 }
 
         .team-tiles {
@@ -155,7 +291,8 @@
         }
 
         .description {
-            margin-top: 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
             font-size: 1.2rem;
             color: #4a3f35;
             background-color: #fff;
@@ -164,14 +301,10 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            
         }
 
-        footer {
-            background-color: #516357;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
+        
 
         @media (min-width: 1200px) {
             .team-tiles {
@@ -194,6 +327,65 @@
                 gap: 40px;
             }
         }
+
+
+
+
+
+
+        .section-wrapper {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           gap: 2rem;
+           padding: 5vh 0;
+       }
+       .social-media {
+           margin-top: 7px;
+           text-align: center;
+       }
+
+
+
+
+
+
+
+
+       .social-icon {
+           font-size: 24px;
+           margin: 0 10px;
+           color: #4a3f35;
+           transition: color 0.3s ease;
+       }
+
+
+
+
+
+
+
+
+       .social-icon:hover {
+           color: #e5d181;
+       }
+
+
+
+
+
+
+
+       footer {
+    background-color: #516357;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto; 
+    width: 100%;
+    position-anchor: bottom;
+}
     </style>
 </head>
 <body>
@@ -209,48 +401,46 @@
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
                 <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
                 <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
+                <li class="nav-item"><a class="nav-link" href="events&news.html">Events & News</a></li>
+                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
 
-            </ul>
+ 
+             </ul>
         </div>
         <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
             Cart <span id="cart-count" class="badge badge-pill badge-primary">0</span>
         </button>
     </nav>
 
-    <header class="hero">
-        <div class="hero-text">
-            <h1>Welcome to Amorantha</h1>
-            <p>Your destination for fresh vegan Mexican-Indian fusion.</p>
-        </div>
-    </header>
-
-    
-
     <div class="process-section">
+        <video autoplay muted loop id="background-video">
+            <source src="video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <h2>Our Process</h2>
         <div class="process-steps">
             <div class="process-step">
-                <img src="processImages/process1.png" alt="Step 1">
-                <h3>Purpose - Health and Sustainability</h3>
-                <p>At Amorantha, we are committed to serving clean, ethically sourced, and plant-based cuisine that nourishes both the body and the planet. By placing sustainability as our top priority, we offer a dining experience that is not only exceptional in flavor but is also in harmony with the Earth, fostering a healthy lifestyle with every bite. All our produce is cultivated directly on our on-site farm, ensuring that every dish is prepared with the freshest and most vibrant ingredients available.</p>
+                <img src="iconImages/icon1.png" alt="Step 1">
+                <h3>Cultivating our Fresh Ingredients</h3>
+                <p>At Amorantha, we believe in bringing the freshest ingredients directly to your table by cultivating them on our very own on-site farm. Under the expertise of our wonderful farmers, Robert Glinsky and Jake Thompson, we grow a wide range of seasonal produce using organic methods that ensure the highest quality. From leafy greens and vibrant vegetables to fragrant herbs, every crop is nurtured with care. Both Robert and Jake are committed to sustainable farming practices, using no pesticides and promoting healthy soil through composting and crop rotation. Our manager, Rajiv Kapoor, ensures that all of this aligns with our restaurant’s commitment to sustainability, overseeing the smooth integration of farm-fresh ingredients into the kitchen.</p>
             </div>
             <div class="process-step">
-                <img src="processImages/process2.png" alt="Step 2">
-                <h3>Ethical Sourcing and Zero-Waste Philosophy</h3>
-                <p>We embrace a zero-waste philosophy, composting every food scrap, and uphold a strict policy of never using animal products or dairy, making every meal fully vegan. Our ingredients are grown without pesticides, adhering to organic practices that prioritize both personal health and environmental well-being.</p>
+                <img src="iconImages/icon2.png" alt="Step 2">
+                <h3>Harvesting for the Season's Best Flavors</h3>
+                <p>Once the crops are ready, Robert and Jake collaborate closely with our head chef Lorena Martinez to ensure that everything is harvested at its peak. With fresh, seasonal ingredients like juicy tomatoes and aromatic herbs, each dish celebrates the natural flavors of the farm. Because we grow our produce on-site, it’s often harvested just hours before it reaches your plate, ensuring exceptional freshness. Chef Martinez carefully selects the best ingredients to craft dishes that highlight the unique flavors of each season, creating an authentic and unique dining experience that celebrates the earth’s bounty.
+                </p>
             </div>
             <div class="process-step">
-                <img src="processImages/process3.png" alt="Step 3">
-                <h3>Prep Process</h3>
-                <p>Our preparation process at Amorantha is built on a foundation of care, freshness, and expertise. Each day, our chefs hand-pick the finest ingredients directly from our on-site farm, ensuring that only the best produce is used in every meal. With meticulous attention to detail, our chefs expertly prepare each dish, preserving its natural flavors and nutrients..</p>
+                <img src="iconImages/icon3.png" alt="Step 3">
+                <h3> From Field to Kitchen and back</h3>
+                <p>Our farm-to-table process doesn’t stop at harvest. Every food scrap from our kitchen is carefully composted to nurture the next season's crops. With the help of Robert and Jake, we ensure that all organic waste is put back into the farm’s ecosystem, creating a system that minimizes waste and maximizes sustainability. This process supports the farm, reduces our carbon footprint, and ensures that we’re continuously improving the health of our land. Manager Kapoor is very efficient in making sure these zero-waste practices are fully implemented, and that Amorantha stays true to its environmental commitment.</p>
             </div>
             <div class="process-step">
-                <img src="processImages/process4.png" alt="Step 4">
-                <h3>Farm-to-Plate Philosophy</h3>
-                <p>From farm to plate, our commitment to freshness and sustainability is reflected throughout all our dishes, creating a dining experience that is as vibrant and exceptional as the ingredients themselves.</p>
+                <img src="iconImages/icon4.png" alt="Step 4">
+                <h3>Bringing the Farm to Your Plate</h3>
+                <p>As soon as the harvest is complete, our extremely talented chefs transform the produce into vibrant dishes that showcase the best of what the farm has to offer. Under the guidance of our head chef, our menu evolves based on the season's harvest. By growing the ingredients ourselves and working alongside our amazing farmers, we ensure that our dishes are made with the freshest, most flavorful ingredients and most importantly love. By placing sustainability as our top priority, we offer a dining experience that is not only exceptional in flavor but is also in harmony with the Earth, fostering a healthy lifestyle with every bite.</p>
             </div>
         </div>
     </div>
@@ -259,7 +449,11 @@
         <h2>Meet the Team</h2>
         <h5>At Amorantha, we take pride in the hard work our chefs and farmers put into each and every meal. They work together to create each dish with love and consideration for the environment. Our staff makes sure that every plate is a tribute to sustainability and quality by cultivating and harvesting fresh, organic foods every day on our on-site farm. </h4>
            
-           
+            <div class="description" id="description-box">
+                <h4>Click on a team member to learn more about them.</h4>
+                <p>   </p>
+    
+        </div>
         <div class="team-tiles">
             <div class="team-tile" onclick="showDescription(0)">
                 <img src="teamPics/chef1.png" alt="Chef Lorena Martinez">
@@ -278,7 +472,7 @@
                 <h4>Farmer Robert Glinsky</h4>
             </div>
             <div class="team-tile" onclick="showDescription(4)">
-                <img src="teamPics/manager1.png" alt="Manager Rajiv Kapoor">
+                <img src="teamPics/manager1.jpg" alt="Manager Rajiv Kapoor">
                 <h4>Manager Rajiv Kapoor</h4>
             </div>
             <div class="team-tile" onclick="showDescription(5)">
@@ -286,11 +480,7 @@
                 <h4>Nutritionist Maya Patel</h4>
             </div>
         </div>
-        <div class="description" id="description-box">
-            <h4>Click on a team member to learn more about them.</h4>
-            <p>   </p>
-
-    </div>
+        
 
 
     <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
@@ -316,11 +506,70 @@
 
 
 
+    
+
     <footer>
-        <p>© 2025 Amorantha. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="social-media">
+                <a href="https://m.facebook.com/61573194025918" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/amorantha.restaurant/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@amorantha.restaur" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+    
+            <div class="footer-separator"></div>
+    
+            <button class="review-btn" onclick="openReviewPopup()">Leave a Review</button>
+        </div>
+    
+        <p class="footer-note">TSA24-25 Webmaster</p>
     </footer>
+    
+    <div id="review-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeReviewPopup()">&times;</span>
+            <h2>Leave a Review</h2>
+            <textarea id="review-text" placeholder="Write your review here..."></textarea>
+            <button class="submit-btn" onclick="submitReview()">Submit</button>
+        </div>
+    </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+
 
     <script>
+
+function openReviewPopup() {
+        document.getElementById("review-popup").style.display = "block";
+    }
+
+    function closeReviewPopup() {
+        document.getElementById("review-popup").style.display = "none";
+    }
+
+    function submitReview() {
+        let reviewText = document.getElementById("review-text").value;
+        if (reviewText.trim() === "") {
+            alert("Please enter a review before submitting.");
+            return;
+        }
+        alert("Thank you for your review!");
+        document.getElementById("review-text").value = "";
+        closeReviewPopup();
+    }
+
+
+
+
+
         let cart = JSON.parse(localStorage.getItem('cart')) || []; 
         const cartCount = document.getElementById('cart-count');
         const cartItemsContainer = document.getElementById('cart-items');
@@ -380,11 +629,7 @@
         document.addEventListener('DOMContentLoaded', () => {
     cart = JSON.parse(localStorage.getItem('cart')) || []; 
     updateCart(); 
-})
-;
-
-
-
+});
 
 function handleScrollAnimation() {
     const steps = document.querySelectorAll(".process-step");

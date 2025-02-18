@@ -1,616 +1,1148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amorantha Philosophy</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Amorantha Philosophy</title>
+ 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+ 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+ 
+   <style>
+
+    #cartModal {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #516357;
+    }
+
+     .footer-container-xyz123 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .social-media-xyz123 {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-icon-xyz123 {
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .footer-divider-xyz123 {
+        width: 2px;
+        height: 30px;
+        background-color: #ccc;
+    }
+
+    .weird-feedback-btn-xyz123 {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .weird-feedback-btn-xyz123:hover {
+        background-color: #45a049;
+    }
+
+    .modal-xyz123 {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        max-width: 90%;
+        background: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .modal-content-xyz123 {
+        position: relative;
+    }
+
+    .close-btn-xyz123 {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    #weird-feedback-input-xyz123 {
+        width: 100%;
+        height: 120px;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        resize: none;
+    }
+
+    .submit-btn-xyz123 {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .submit-btn-xyz123:hover {
+        background-color: #007bb5;
+    }
+.popup-container {
+    position: absolute;
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <style>
-        
-        
-        .section {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    padding: 10vh 5vw;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+
+
+
 }
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 2px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 500px;
+}
+.popup input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.popup button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.popup button:hover {
+    background: #218838;
+}
+.popup p {
+    color: #263634;
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+.close-btn {
+    background: #dc3545;
+    margin-top: 10px;
+}
+.close-btn:hover {
+    background: #c82333;
+}
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+     
+       .section {
+   position: relative;
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   color: white;
+   padding: 10vh 5vw;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+   overflow: hidden;
+}
+
+
+
 
 .section h2,
 .section p {
-    position: relative;
-    z-index: 2;
+   position: relative;
+   z-index: 2;
 }
+
+
+
 
 .section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-    opacity: 0.3;
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+   background-position: center;
+   z-index: 1;
+   opacity: 0.3;
 }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        html, body {
-            height: 100%;
-        }
 
-        body {
+
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+
+
+
+
+       html, body {
+           height: 100%;
+       }
+
+
+
+
+       body {
+           font-family: 'Georgia', serif;
+           background-color: #fbf4ed;
+           color: #4a3f35;
+       }
+
+
+
+
+     
+
+
+
+
+       .navbar {
+            background-color: #e5d181;
+            font-size: 16px;
             font-family: 'Georgia', serif;
-            background-color: #fbf4ed;
+        } 
+
+        .navbar-nav .nav-item .nav-link {
             color: #4a3f35;
         }
 
-        
-
-        .navbar {
-    background-color: #e5d181;
-    font-family: 'Garamond', serif;}
-
-
-        .swiper {
-        height: 100%;
-        position: relative;
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        }
-
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-text {
-        position: absolute;
-        text-align: center;
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        z-index: 10; 
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-        }
-        .container {
-            flex: 1;
-            text-align: center; 
-        }
-
-        footer {
-            background-color: #516357;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        h2, h3 {
-            font-family: 'Garamond', serif;
-            color: #6d6875;
-            margin-top: 20px;
-        }
-        .hero-text {
-        position: absolute;
-        text-align: center;
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        z-index: 10; 
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-        }
-        .container {
-            flex: 1;
-            text-align: center; }
-        
-        /* General styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            font-family: 'Poppins', sans-serif;
-            background-color: #8b9e91;
-            color: #e0e0e0;
-            height: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            background: url('indexImages/scroll1.jpg') center/cover no-repeat;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-        .hero-text {
-            font-family: 'Playfair Display', serif; /* Elegant serif font */
-            font-size: 4rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            z-index: 2;
-            opacity: 1;
-        }
-        .scroll-prompt {
-            position: absolute;
-            bottom: 20px;
-            font-size: 2rem;
-            animation: bounce 1.5s infinite;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Parallax Effect */
-        .parallax {
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 80vh;
-            width: 80vw;
-            will-change: transform;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 0 5vw;
-            margin-bottom: 5vh;
-        }
-
-        /* Section Styles */
-        .section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 5vw 0;
-            opacity: 0;
-            transform: scale(1.1);
-            transition: all 0.8s ease;
-            max-width: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            position: relative;
-        }
-
-        .section.active {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .section h2 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            color: #f5f5f5;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 0;
-            border-right: 4px solid #e0e0e0;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        .section p {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 2rem;
-            line-height: 1.5;
-            max-width: 800px;
-            color: #f0f0f0;
-        }
-
-        /* Image Animation */
-        .image {
-            position: absolute;
-            width: 50%;
-            top: 20%;
-            opacity: 0;
-            transition: all 1s ease-in-out;
-            object-fit: contain; /* For transparent images */
-        }
-
-        /* Graphic elements */
-        .graphic-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: #f0f0f0;
-            top: 50%;
-            z-index: 1;
-            opacity: 0.3;
-        }
-
-        .vines {
-            position: absolute;
-            top: 30%;
-            right: 10%;
-            z-index: 2;
-            opacity: 0.3;
-        }
-
-        .vines img {
-            max-width: 200px;
-            max-height: 200px;
-        }
 
 
 
-        .review-card {
-            background: #e5d181;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
 
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .review-profile {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .review-info h5 {
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            color: #516357;
-        }
-
-        .review-info p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #6d6875;
-        }
-
-        .review-body {
-            font-family: 'Lato', sans-serif;
-            color: #4a3f35;
-            line-height: 1.6;
-        }
-
-        
-
-        footer {
-            background-color: #516357;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-
-        /* Scroll Animation */
-        .section-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            padding: 5vh 0;
-        }
-        .social-media {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-
-        .social-icon {
-            font-size: 24px;
-            margin: 0 10px;
-            color: #4a3f35;
-            transition: color 0.3s ease;
-        }
-
-
-        .social-icon:hover {
-            color: #e5d181;
-        }
+       .swiper {
+       height: 100%;
+       position: relative;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       }
 
 
 
-    </style>
+
+       .swiper-slide img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+       }
+
+
+
+
+       .hero-text {
+       position: absolute;
+       text-align: center;
+       color: white;
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+       z-index: 10;
+       }
+
+
+
+
+       .hero-text h1 {
+           font-size: 3rem;
+           color: black;
+       }
+       .container {
+           flex: 1;
+           text-align: center;
+       }
+
+
+
+
+       footer {
+           background-color: #516357;
+           color: white;
+           padding: 10px 0;
+           text-align: center;
+       }
+
+
+
+
+       h2, h3 {
+           font-family: 'Garamond', serif;
+           color: #6d6875;
+           margin-top: 20px;
+       }
+       .hero-text {
+       position: absolute;
+       text-align: center;
+       color: white;
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+       z-index: 10;
+       }
+
+
+
+
+       .hero-text h1 {
+           font-size: 3rem;
+       }
+       .container {
+           flex: 1;
+           text-align: center; }
+     
+       body, html {
+           margin: 0;
+           padding: 0;
+           overflow-x: hidden;
+           font-family: 'Poppins', sans-serif;
+           background-color: #8b9e91;
+           color: #e0e0e0;
+           height: 100%;
+       }
+
+
+
+
+       .hero {
+           position: relative;
+           width: 100vw;
+           height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: column;
+           text-align: center;
+           background: url('indexImages/scroll1.jpg') center/cover no-repeat;
+           transform-style: preserve-3d;
+           will-change: transform;
+       }
+       .hero-text {
+           font-family: 'Playfair Display', serif;
+           font-size: 4rem;
+           font-weight: bold;
+           text-transform: uppercase;
+           letter-spacing: 2px;
+           z-index: 2;
+           opacity: 1;
+       }
+       .scroll-prompt {
+           position: absolute;
+           bottom: 20px;
+           font-size: 2rem;
+           animation: bounce 1.5s infinite;
+       }
+       @keyframes bounce {
+           0%, 100% { transform: translateY(0); }
+           50% { transform: translateY(-10px); }
+       }
+
+
+
+
+       .parallax {
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+           height: 80vh;
+           width: 80vw;
+           will-change: transform;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           position: relative;
+           padding: 0 5vw;
+           margin-bottom: 5vh;
+       }
+
+
+
+
+       .section {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           text-align: center;
+           padding: 5vw 0;
+           opacity: 0;
+           transform: scale(1.1);
+           transition: all 0.8s ease;
+           max-width: 100%;
+           background: rgba(0, 0, 0, 0.6);
+           position: relative;
+       }
+
+
+
+
+       .section.active {
+           opacity: 1;
+           transform: scale(1);
+       }
+
+
+
+
+       .section h2 {
+           font-size: 4rem;
+           margin-bottom: 20px;
+           text-transform: uppercase;
+           color: #f5f5f5;
+           overflow: hidden;
+           white-space: nowrap;
+           width: 0;
+           border-right: 4px solid #e0e0e0;
+       }
+
+
+
+
+       @keyframes typing {
+           from {
+               width: 0;
+           }
+           to {
+               width: 100%;
+           }
+       }
+
+
+
+
+       .section p {
+           font-family: Georgia, 'Times New Roman', Times, serif;
+           font-size: 2rem;
+           line-height: 1.5;
+           max-width: 800px;
+           color: #f0f0f0;
+       }
+
+
+
+
+       .image {
+           position: absolute;
+           width: 50%;
+           top: 20%;
+           opacity: 0;
+           transition: all 1s ease-in-out;
+           object-fit: contain;
+       }
+
+
+
+
+       .graphic-line {
+           position: absolute;
+           width: 100%;
+           height: 2px;
+           background: #f0f0f0;
+           top: 50%;
+           z-index: 1;
+           opacity: 0.3;
+       }
+
+
+
+
+
+
+
+
+       .review-card {
+           background: #e5d181;
+           border-radius: 3px;
+           padding: 20px;
+           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+           transition: transform 0.3s ease, box-shadow 0.3s ease;
+       }
+
+
+
+
+       .review-card:hover {
+           transform: translateY(-5px);
+           box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+       }
+
+       .review-header {
+           display: flex;
+           align-items: center;
+           margin-bottom: 15px;
+       }
+
+       .review-profile {
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+           margin-right: 10px;
+       }
+
+
+
+
+       .review-info h5 {
+           margin: 0;
+           font-family: 'Playfair Display', serif;
+           color: #516357;
+       }
+
+
+
+
+       .review-info p {
+           margin: 0;
+           font-size: 0.9rem;
+           color: #6d6875;
+       }
+
+
+
+
+       .review-body {
+           font-family: 'Lato', sans-serif;
+           color: #4a3f35;
+           line-height: 1.6;
+       }
+
+
+
+
+     
+
+
+
+
+       footer {
+           background-color: #516357;
+           color: white;
+           padding: 20px 0;
+           text-align: center;
+           font-family: g;
+       }
+
+
+
+
+
+
+
+
+       .section-wrapper {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           gap: 2rem;
+           padding: 5vh 0;
+       }
+       .social-media {
+           margin-top: 7px;
+           text-align: center;
+       }
+
+
+
+
+
+
+
+
+       .social-icon {
+           font-size: 24px;
+           margin: 0 10px;
+           color: #4a3f35;
+           transition: color 0.3s ease;
+       }
+
+
+
+
+
+
+
+
+       .social-icon:hover {
+           color: #e5d181;
+       }
+
+
+
+
+
+
+
+
+
+
+   </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">
-            <img src="AmoranthaLogo.png" alt="Amorantha Logo" style="height: 90px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
-                <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
-                <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
-           </ul>
+
+
+<div class="popup-container" id="popupContainer">
+    <div class="popup">
+        <h2>Join Our Newsletter</h2>
+        <p>Subscribe to our newsletter to receive updates on our latest dishes and promotions!</p>
+        <input type="text" id="nameInput" placeholder="Enter your name" required>
+        <input type="email" id="emailInput" placeholder="Enter your email" required>
+        <button onclick="sendEmail()">Subscribe</button>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+        <p id="statusMessage"></p>
+    </div>
+</div>
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="index.html">
+        <img src="AmoranthaLogo.png" alt="Amorantha Logo" style="height: 90px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
+            <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
+            <li class="nav-item"><a class="nav-link" href="events&news.html">Events & News</a></li>
+            <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
+
+
+         </ul>
+    </div>
+    <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
+        Cart <span id="cart-count" class="badge badge-pill badge-primary">0</span>
+    </button>
+</nav>
+   <section class="hero">
+       <h1 class="hero-text">Welcome to Amorantha</h1>
+
+
+
+
+       <div class="scroll-prompt">↓ Discover More ↓</div>
+     
+   </section>
+ 
+ 
+   </div>
+
+
+
+
+   <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+               <div class="modal-body">
+                   <div id="cart-items"></div>
+                   <div id="cart-total" class="mt-3"></div>
+               </div>
+               <div class="modal-footer">
+                   <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+
+
+ 
+ 
+   <div class="section-wrapper">
+       <section class="section parallax" id="section1">
+           <div class="content-container">
+               <div class="text-container">
+                   <h2 class="typing-effect">Our History</h2>
+                   <p>Amorantha combines the Spanish word for love, Amor, and the name of a staple grain in Indian cuisine, Amaranth.
+
+
+
+
+                       This playful mix of words reflects our restaurant's Indian and Spanish fusion cuisine and the love we put into our dishes. </p>
+             
+                   <p>Our restaurant's colors are yellow, muave, and green. They embody the vibrancy of our meals and the richness of the cultures they represent. These colors are recognized in the many meals of those countries as well- mauve, the color of Amaranth, can evoke a sense of elegance and sophistication, blending both cultures' rich aesthetics; rice and spice usage represents yellow; and the abundance of plant-based meals expresses the green portion.
+                   </p>
+                   </div>
+               <div class="image-container">
+                   <img src="indexImages/amaranth.jpg" alt="image4" class="image">
+               </div>
+           </div>
+       </section>
+
+
+
+
+
+
+
+
+       <section class="section parallax" id="section2">
+           <div>
+               <h2 class="typing-effect">Our Philosophy</h2>
+               <p>Food is more than a meal; every dish we serve carries centuries of culture. The combination of piquant Indian flavors and savory Spanish cooking results in a menu of food items our customers love! Most importantly, we prioritize clean, ethically sourced, vegan food. We serve our customers high-quality farm-to-table dishes, and we aim for everyone to have the best dining experience possible.
+               </p>
+               <img src="indexImages/philosophy2.jpg" alt="Mind" class="image" id="image2">
+             
+           </div>
+       </section>
+
+
+
+
+       <section class="section parallax" id="section3">
+           <div>
+               <h2 class="typing-effect">Sustainability</h2>
+               <p>By getting our ingredients directly from farms that grow crops native to India and Spain, we encapture the authentic feel of their cuisine and ensure the freshness of our food. We serve our customers locally sourced, seasonal ingredients to guarantee each meal is environmentally friendly. We are focused on sustainability by managing waste efficiently and therefore reducing our carbon footprint.
+               </p>
+               <img src="indexImages/philosophy3.jpg" alt="Ethics" class="image" id="image3">
+           </div>
+       </section>
+   </div>
+
+
+ 
+   <div class="container mt-4">
+    <h2>What Our Customers Say</h2>
+    <div class="row">
+       
+        <div class="col-md-4 mb-4">
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="reviewImages/review1.jpg" alt="Profile Picture" class="review-profile">
+                    <div class="review-info">
+                        <h5>Jacob Smith</h5>
+                        <p class="text-muted">@Jacob Smith · 2 weeks ago</p>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>Amorantha is a gem! The fusion of Indian and Mexican flavors is mind-blowing. The vegan options are delicious, and the ambiance is so cozy. Highly recommend!</p>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
-            Cart <span id="cart-count" class="badge badge-pill badge-primary">0</span>
-        </button>
-    </nav>
-    <section class="hero">
-        <h1 class="hero-text">Welcome to Amorantha</h1>
-        <div class="scroll-prompt">↓ Discover More ↓</div>
-        
-    </section>
-    
-    
+
+
+       
+        <div class="col-md-4 mb-4">
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="reviewImages/review2.jpg" alt="Profile Picture" class="review-profile">
+                    <div class="review-info">
+                        <h5>Pooja Patel</h5>
+                        <p class="text-muted">@Pooja Patel · 1 month ago</p>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>I love the farm-to-table concept here. The food is fresh, flavorful, and ethically sourced. The staff is super friendly too. Will definitely come back!</p>
+                </div>
+            </div>
+        </div>
+
+
+       
+        <div class="col-md-4 mb-4">
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="reviewImages/review3.jpg" alt="Profile Picture" class="review-profile">
+                    <div class="review-info">
+                        <h5>Juliana Martinez</h5>
+                        <p class="text-muted">@Juliana Martinez · 3 weeks ago</p>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>The vegan tacos are out of this world! The combination of spices and textures is perfect. Amorantha has become my go-to spot for a healthy, delicious meal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<footer>
+    <div class="footer-container-xyz123">
+        <div class="social-media-xyz123">
+            <a href="https://m.facebook.com/61573194025918" class="social-icon-xyz123"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/amorantha.restaurant/" class="social-icon-xyz123"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@amorantha.restaur" class="social-icon-xyz123"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <div class="footer-divider-xyz123"></div>
+
+        <button class="weird-feedback-btn-xyz123" onclick="openWeirdFeedback()">Leave a Review</button>
     </div>
 
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div id="cart-items"></div>
-                    <div id="cart-total" class="mt-3"></div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="checkout-btn" class="btn btn-primary">Checkout</button>
-                </div>
-            </div>
-        </div>
+    <p class="footer-note-xyz123">TSA24-25 Webmaster</p>
+</footer>
+
+<div id="weird-feedback-container-xyz123" class="modal-xyz123">
+    <div class="modal-content-xyz123">
+        <span class="close-btn-xyz123" onclick="closeWeirdFeedback()">&times;</span>
+        <h2>Leave Feedback</h2>
+        <textarea id="weird-feedback-input-xyz123" placeholder="Write your review here..."></textarea>
+        <button class="submit-btn-xyz123" onclick="submitWeirdFeedback()">Submit</button>
     </div>
+</div>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    
-    
-    <!-- Content Sections -->
-    <div class="section-wrapper">
-        <section class="section parallax" id="section1">
-            <div>
-                <h2 class="typing-effect">Our Philosophy</h2>
-                <p>At Amorantha, we are committed to serving clean, ethically sourced, and plant-based cuisine that nourishes both the body and the planet. All our produce is cultivated directly on our on-site farm, ensuring that every dish is prepared with the freshest and most vibrant ingredients available.                </p>
-                <img src="indexImages/philosophy1.jpg" alt="Existence" class="image" id="image1">
-            </div>
-        </section>
+   <script>
 
-        <section class="section parallax" id="section2">
-            <div>
-                <h2 class="typing-effect">Sustainability</h2>
-                <p>We embrace a zero-waste philosophy, composting every food scrap, and uphold a strict policy of never using animal products or dairy, making every meal fully vegan. Our ingredients are grown without pesticides, adhering to organic practices that prioritize both personal health and environmental well-being.
-                    By placing sustainability as our top priority, we offer a dining experience that is not only exceptional in flavor but is also in harmony with the Earth, fostering a healthy lifestyle with every bite.</p>
-                <img src="indexImages/philosophy2.jpg" alt="Mind" class="image" id="image2">
-                
-            </div>
-        </section>
-
-        <section class="section parallax" id="section3">
-            <div>
-                <h2 class="typing-effect">Prep Process</h2>
-                <p>Our preparation process at Amorantha is built on a foundation of care, freshness, and expertise. Each day, our chefs hand-pick the finest ingredients directly from our on-site farm, ensuring that only the best produce is used in every meal. With meticulous attention to detail, our chefs expertly prepare each dish, preserving its natural flavors and nutrients. From farm to plate, our commitment to freshness and sustainability is reflected throughout all our dishes, creating a dining experience that is as vibrant and exceptional as the ingredients themselves.
-                </p>
-                <img src="indexImages/philosophy3.jpg" alt="Ethics" class="image" id="image3">
-                
-            </div>
-        </section>
-
-
-    </div>
-
-    
-
-    <footer>
-        <div class="social-media">
-            <a href="https://m.facebook.com/61573194025918" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/amorantha.restaurant/" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@amorantha.restaur" class="social-icon"><i class="fab fa-tiktok"></i></a>
-         
-        </div>
-        <p>TSA24-25 Webmaster</p>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero Text Animation
-        gsap.from(".hero-text", { y: 50, duration: 1.5, ease: "power3.out" });
-        gsap.from(".scroll-prompt", { opacity: 0, y: 20, repeat: -1, yoyo: true, duration: 1.2 });
-
-        // Different Image Animations for Each Section
-        const sections = document.querySelectorAll('.section');
-        const images = document.querySelectorAll('.image');
-
-        const options = {
-            root: null, 
-            threshold: 0.5 
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                const heading = entry.target.querySelector('h2');
-                const image = entry.target.querySelector('.image');
-
-                // Start typing animation when the section is in view
-                if (entry.isIntersecting && !heading.classList.contains('animated')) {
-                    heading.classList.add('animated');
-                    heading.style.animation = 'typing 3s steps(30) forwards';
-                    entry.target.classList.add('active'); // Make section visible
-
-                    // Image animation based on section
-                    if (entry.target.id === 'section1') {
-                        // Section 1: Zoom in effect
-                        gsap.to(image, {
-                            opacity: 1,
-                            scale: 1.2,
-                            duration: 1.5,
-                            ease: "power2.out"
-                        });
-                    } else if (entry.target.id === 'section2') {
-                        // Section 2: Slide in from left with rotation
-                        gsap.to(image, {
-                            opacity: 1,
-                            scale: 1.2,
-                            duration: 1.5,
-                            ease: "power2.out"
-                        });
-                    } else if (entry.target.id === 'section3') {
-                        // Section 3: Bounce in from below
-                        gsap.to(image, {
-                            opacity: 1,
-                            scale: 1.2,
-                            duration: 1.5,
-                            ease: "power2.out"
-                        });
-                    } else if (entry.target.id === 'section4') {
-                        gsap.to(image, {
-                            opacity: 1,
-                            scale: 1.2,
-                            duration: 1.5,
-                            ease: "power2.out"
-                        });
-                    }
-                }
-            });
-        }, options);
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-        let cart = [];
-
-function updateCart() {
-    cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const cartCount = document.getElementById('cart-count');
-    if (cartCount) {
-        cartCount.textContent = cart.length;
+function openWeirdFeedback() {
+        document.getElementById("weird-feedback-container-xyz123").style.display = "block";
     }
 
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
+    function closeWeirdFeedback() {
+        document.getElementById("weird-feedback-container-xyz123").style.display = "none";
+    }
 
-    if (cartItemsContainer) {
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        cart.forEach(item => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `${item.name} - $${item.price}`;
-            cartItemsContainer.appendChild(cartItem);
-            total += parseFloat(item.price);
-        });
-
-        if (cartTotal) {
-            cartTotal.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+    function submitWeirdFeedback() {
+        let feedbackText = document.getElementById("weird-feedback-input-xyz123").value;
+        if (feedbackText.trim() === "") {
+            alert("Please enter a review before submitting.");
+            return;
         }
+        alert("Thank you for your feedback!");
+        document.getElementById("weird-feedback-input-xyz123").value = "";
+        closeWeirdFeedback();
     }
+
+
+emailjs.init("WRDy1OslEOpasOeZ_");
+
+setTimeout(function() {
+    document.getElementById("popupContainer").classList.add("show");
+}, 2500);
+
+function closePopup() {
+    document.getElementById("popupContainer").classList.remove("show");
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateCart();
+function sendEmail() {
+    var name = document.getElementById("nameInput").value;
+    var email = document.getElementById("emailInput").value;
 
-    const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('Your cart is empty.');
-            } else {
-                localStorage.removeItem('cart');
-                alert('Thank you for your purchase!');
-                updateCart();
-            }
-        });
+    if (!name || !email) {
+        document.getElementById("statusMessage").innerText = "Please enter your name and email!";
+        return;
     }
+
+    var params = {
+        user_name: name,
+        user_email: email  
+    };
+
+    emailjs.send("service_d91vi5g", "template_31u64il", params)
+        .then(function(response) {
+            document.getElementById("statusMessage").innerText = "Thank you, " + name + "! Check your inbox.";
+            document.getElementById("nameInput").value = "";
+            document.getElementById("emailInput").value = "";
+        }, function(error) {
+            document.getElementById("statusMessage").innerText = "Something went wrong. Try again.";
+        });
+}
+
+
+
+
+       gsap.registerPlugin(ScrollTrigger);
+
+
+
+
+       gsap.from(".hero-text", { y: 50, duration: 1.5, ease: "power3.out" });
+       gsap.from(".scroll-prompt", { opacity: 0, y: 20, repeat: -1, yoyo: true, duration: 1.2 });
+
+
+
+
+       const sections = document.querySelectorAll('.section');
+       const images = document.querySelectorAll('.image');
+
+
+
+
+       const options = {
+           root: null,
+           threshold: 0.5
+       };
+
+
+
+
+       const observer = new IntersectionObserver((entries, observer) => {
+           entries.forEach(entry => {
+               const heading = entry.target.querySelector('h2');
+               const image = entry.target.querySelector('.image');
+
+
+
+
+               if (entry.isIntersecting && !heading.classList.contains('animated')) {
+                   heading.classList.add('animated');
+                   heading.style.animation = 'typing 3s steps(30) forwards';
+                   entry.target.classList.add('active');
+
+
+
+
+                   if (entry.target.id === 'section1') {
+                       gsap.to(image, {
+                           opacity: 1,
+                           scale: 1.2,
+                           duration: 1.5,
+                           ease: "power2.out"
+                       });
+                   } else if (entry.target.id === 'section2') {
+                       gsap.to(image, {
+                           opacity: 1,
+                           scale: 1.2,
+                           duration: 1.5,
+                           ease: "power2.out"
+                       });
+                   } else if (entry.target.id === 'section3') {
+                       gsap.to(image, {
+                           opacity: 1,
+                           scale: 1.2,
+                           duration: 1.5,
+                           ease: "power2.out"
+                       });
+                   } else if (entry.target.id === 'section4') {
+                       gsap.to(image, {
+                           opacity: 1,
+                           scale: 1.2,
+                           duration: 1.5,
+                           ease: "power2.out"
+                       });
+                   }
+               }
+           });
+       }, options);
+
+
+
+
+       sections.forEach(section => {
+           observer.observe(section);
+       });
+
+
+
+
+       const swiper = new Swiper('.swiper', {
+           loop: true,
+           autoplay: {
+               delay: 3000,
+           },
+           navigation: {
+               nextEl: '.swiper-button-next',
+               prevEl: '.swiper-button-prev',
+           },
+           pagination: {
+               el: '.swiper-pagination',
+               clickable: true,
+           },
+       });
+       let cart = [];
+
+
+
+
+function updateCart() {
+   cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+
+
+   const cartCount = document.getElementById('cart-count');
+   if (cartCount) {
+       cartCount.textContent = cart.length;
+   }
+
+
+
+
+   const cartItemsContainer = document.getElementById('cart-items');
+   const cartTotal = document.getElementById('cart-total');
+
+
+
+
+   if (cartItemsContainer) {
+       cartItemsContainer.innerHTML = '';
+       let total = 0;
+
+
+
+
+       cart.forEach(item => {
+           const cartItem = document.createElement('div');
+           cartItem.classList.add('cart-item');
+           cartItem.innerHTML = `${item.name} - $${item.price}`;
+           cartItemsContainer.appendChild(cartItem);
+           total += parseFloat(item.price);
+       });
+
+
+
+
+       if (cartTotal) {
+           cartTotal.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+       }
+   }
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+   updateCart();
+
+
+
+
+   const checkoutBtn = document.getElementById('checkout-btn');
+   if (checkoutBtn) {
+       checkoutBtn.addEventListener('click', () => {
+           if (cart.length === 0) {
+               alert('Your cart is empty.');
+           } else {
+               localStorage.removeItem('cart');
+               alert('Thank you for your purchase!');
+               updateCart();
+           }
+       });
+   }
 });
 ;
 
-gsap.fromTo(image, 
-    { 
-        x: '50%', 
-        opacity: 1
-    }, 
-    { 
-        x: '0%', 
-        opacity: 1,
-        scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            end: 'bottom 30%',
-            scrub: true,
-            toggleActions: 'play none none reverse'
-        }
-    }
+
+
+
+gsap.fromTo(image,
+   {
+       x: '50%',
+       opacity: 1
+   },
+   {
+       x: '0%',
+       opacity: 1,
+       scrollTrigger: {
+           trigger: section,
+           start: 'top 80%',
+           end: 'bottom 30%',
+           scrub: true,
+           toggleActions: 'play none none reverse'
+       }
+   }
 );
 
-    </script>
+
+
+
+
+
+
+
+gsap.utils.toArray('.parallax-section').forEach(section => {
+           gsap.fromTo(section,
+               { backgroundPosition: '50% 0%' },
+               {
+                   backgroundPosition: '50% 100%',
+                   ease: "none",
+                   scrollTrigger: {
+                       trigger: section,
+                       start: "top bottom",
+                       end: "bottom top",
+                       scrub: true
+                   }
+               }
+           );
+       });
+
+
+
+
+      
+
+
+
+
+
+
+   </script>
+
+
+
 
 </body>
 </html>
+
+
+
+
+
+
+

@@ -4,8 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>References - Amorantha</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+      <style>
+#cartModal {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: #516357;
+    }
+
+
+    .footer-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .social-media {
+        display: flex;
+        gap: 10px;
+    }
+
+    .social-icon {
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .footer-separator {
+        width: 2px;
+        height: 30px;
+        background-color: #ccc;
+    }
+
+    .review-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .review-btn:hover {
+        background-color: #45a049;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        max-width: 90%;
+        background: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .popup-content {
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    textarea {
+        width: 100%;
+        height: 120px;
+        margin: 10px 0;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .submit-btn {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .submit-btn:hover {
+        background-color: #007bb5;
+    } 
         p {text-align: center;}
         
         * {
@@ -29,6 +128,7 @@
 
         .navbar {
             background-color: #e5d181;
+            font-size: 16px;
         }
 
         footer {
@@ -55,6 +155,59 @@
             margin: 20px auto;
             border: none;
         }
+
+
+
+
+        .section-wrapper {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           gap: 2rem;
+           padding: 5vh 0;
+       }
+       .social-media {
+           margin-top: 7px;
+           text-align: center;
+       }
+
+
+
+
+
+
+
+
+       .social-icon {
+           font-size: 24px;
+           margin: 0 10px;
+           color: #4a3f35;
+           transition: color 0.3s ease;
+       }
+
+
+
+
+
+
+
+
+       .social-icon:hover {
+           color: #e5d181;
+       }
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -70,11 +223,13 @@
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
                 <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
                 <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
-           
-            </ul>
+                <li class="nav-item"><a class="nav-link" href="events&news.html">Events & News</a></li>
+                <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
+
+ 
+             </ul>
         </div>
         <button class="btn btn-outline-dark ml-auto" data-toggle="modal" data-target="#cartModal">
             Cart <span id="cart-count" class="badge badge-pill badge-primary">0</span>
@@ -83,8 +238,8 @@
 
     <div class="container">
         <h2>References/Sources</h2>
-        <iframe src="tsa references.pdf" width="100%" height="800px" style="border: 2px solid #6d6875;"></iframe>
-        <p> <a href="tsa references.pdf" target="_blank">Click here to view!</a></p>
+        <iframe src="tsa references-2.pdf" width="100%" height="800px" style="border: 2px solid #6d6875;"></iframe>
+        <p> <a href="tsa references-2.pdf" target="_blank">Click here to view!</a></p>
     </div>
 
 
@@ -114,16 +269,64 @@
             </div>
         </div>
     </div>
+    
 
     <footer>
-        <p>TSA24-25 Webmaster</p>
+        <div class="footer-container">
+            <div class="social-media">
+                <a href="https://m.facebook.com/61573194025918" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/amorantha.restaurant/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@amorantha.restaur" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+    
+            <div class="footer-separator"></div>
+    
+            <button class="review-btn" onclick="openReviewPopup()">Leave a Review</button>
+        </div>
+    
+        <p class="footer-note">TSA24-25 Webmaster</p>
     </footer>
+    
+    <div id="review-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeReviewPopup()">&times;</span>
+            <h2>Leave a Review</h2>
+            <textarea id="review-text" placeholder="Write your review here..."></textarea>
+            <button class="submit-btn" onclick="submitReview()">Submit</button>
+        </div>
+    </div>
+    
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+ 
     <script>
+function openReviewPopup() {
+        document.getElementById("review-popup").style.display = "block";
+    }
+
+    function closeReviewPopup() {
+        document.getElementById("review-popup").style.display = "none";
+    }
+
+    function submitReview() {
+        let reviewText = document.getElementById("review-text").value;
+        if (reviewText.trim() === "") {
+            alert("Please enter a review before submitting.");
+            return;
+        }
+        alert("Thank you for your review!");
+        document.getElementById("review-text").value = "";
+        closeReviewPopup();
+    }
+
+
+
         let cart = JSON.parse(localStorage.getItem('cart')) || []; 
         const cartCount = document.getElementById('cart-count');
         const cartItemsContainer = document.getElementById('cart-items');
