@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
    <meta charset="UTF-8">
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFGFG9WY4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFGFG9WY4P');
+</script>
+
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Amorantha Philosophy</title>
  
@@ -13,7 +24,21 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
  
    <style>
-       
+    .star-rating-xyz123 {
+    display: flex;
+    gap: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ccc;
+    margin: 10px 0;
+}
+
+.star-rating-xyz123 .star.hovered,
+.star-rating-xyz123 .star.selected {
+    color: gold;
+}
+
+
     #cartModal {
         font-family: Georgia, 'Times New Roman', Times, serif;
         color: #516357;
@@ -45,7 +70,7 @@
     }
 
     .weird-feedback-btn-xyz123 {
-        background-color: #4CAF50;
+        background-color: #28382c;
         color: white;
         border: none;
         padding: 10px 20px;
@@ -55,7 +80,7 @@
     }
 
     .weird-feedback-btn-xyz123:hover {
-        background-color: #45a049;
+        background-color: #323f33;
     }
 
     .modal-xyz123 {
@@ -98,7 +123,7 @@
     }
 
     .submit-btn-xyz123 {
-        background-color: #008CBA;
+        background-color: #233d45;
         color: white;
         border: none;
         padding: 10px 15px;
@@ -108,7 +133,7 @@
     }
 
     .submit-btn-xyz123:hover {
-        background-color: #007bb5;
+        background-color: #435760;
     }
 .popup-container {
     position: absolute;
@@ -145,7 +170,7 @@
     border-radius: 4px;
 }
 .popup button {
-    background: #28a745;
+    background: #80607c;
     color: white;
     padding: 10px;
     border: none;
@@ -153,7 +178,7 @@
     cursor: pointer;
 }
 .popup button:hover {
-    background: #218838;
+    background: #9a8097;
 }
 .popup p {
     color: #263634;
@@ -162,11 +187,11 @@
 
 }
 .close-btn {
-    background: #dc3545;
+    background: #7d444a;
     margin-top: 10px;
 }
 .close-btn:hover {
-    background: #c82333;
+    background: #6b3f43;
 }
 .show {
     visibility: visible;
@@ -489,11 +514,25 @@
 
 
 
+       .static-stars {
+    display: flex;
+    gap: 4px;
+    font-size: 20px;
+    color: gold;
+    margin: 5px 0 10px;
+}
 
+.static-stars .star {
+    color: #ccc;
+}
+
+.static-stars .star.filled {
+    color: rgb(227, 128, 85);
+}
 
 
        .review-card {
-           background: #e5d181;
+           background: #e5d69a;
            border-radius: 3px;
            padding: 20px;
            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -550,8 +589,6 @@
 
 
 
-
-     
 
 
 
@@ -619,29 +656,294 @@
 
 
 
+       .review-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.review-popup-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.review-popup {
+    background: #f4f0ea;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    font-family: 'Georgia', serif;
+    color: #4a3f35;
+    text-align: center;
+    position: relative;
+    animation: popupFadeIn 0.4s ease-out;
+}
+
+@keyframes popupFadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.review-popup textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    background-color: #fff;
+    margin-top: 15px;
+}
+
+.review-popup .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.review-popup button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    transition: background 0.3s ease;
+}
+
+.review-popup .submit-btn {
+    background-color: #516357;
+    color: white;
+}
+
+.review-popup .submit-btn:hover {
+    background-color: #3b4d40;
+}
+
+.review-popup .close-btn {
+    background-color: #edd2d2;
+    color: white;
+}
+
+.review-popup .close-btn:hover {
+    background-color: #f5dcdc;
+}
 
 
+.review-popup-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
 
+.review-popup {
+    background: #f4f0ea;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    font-family: 'Georgia', serif;
+    color: #4a3f35;
+    text-align: center;
+    position: relative;
+    animation: popupFadeIn 0.4s ease-out;
+}
 
+@keyframes popupFadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
+.review-popup textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    background-color: #fff;
+    margin-top: 15px;
+}
+
+.review-popup .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.review-popup button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    transition: background 0.3s ease;
+}
+
+.review-popup .submit-btn {
+    background-color: #516357;
+    color: white;
+}
+
+.review-popup .submit-btn:hover {
+    background-color: #3b4d40;
+}
+
+.review-popup .close-btn {
+    background-color: transparent; /* Removed red background */
+    color: #888;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    border: none;
+}
+
+.review-popup .close-btn:hover {
+    color: #555;
+}
+
+/* Newsletter Popup Styles */
+#newsletter-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    padding: 2rem;
+    width: 900px; /* Wider */
+    height: 400px; /* Shorter */
+    font-family: 'Georgia', serif;
+    text-align: center;
+}
+
+#newsletter-popup h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #4d404a;
+}
+
+#newsletter-popup p {
+    color: #4d404a;
+    margin-bottom: 1.5rem;
+}
+
+#newsletter-popup input {
+    width: 90%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#newsletter-popup button {
+    background: #7b5b70;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    margin: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+#newsletter-popup button:hover {
+    background: #5d4455;
+}
+
+#newsletter-popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #888;
+    background-color: transparent; /* no red */
+    border: none;
+    cursor: pointer;
+}
+
+#newsletter-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    z-index: 1000;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Popup */
+@media (max-width: 650px) {
+    #newsletter-popup {
+        width: 90%;
+        height: auto;
+    }
+}
 
    </style>
 </head>
 <body>
 
+    <img src="NewsletterIcon.png" id="newsletter-icon" alt="Newsletter Icon" onclick="openNewsletterPopup()">
 
 
-<div class="popup-container" id="popupContainer">
-    <div class="popup">
-        <h2>Join Our Newsletter</h2>
-        <p>Subscribe to our newsletter to receive updates on our latest dishes and promotions!</p>
-        <input type="text" id="nameInput" placeholder="Enter your name" required>
-        <input type="email" id="emailInput" placeholder="Enter your email" required>
-        <button onclick="sendEmail()">Subscribe</button>
-        <button class="close-btn" onclick="closePopup()">Close</button>
-        <p id="statusMessage"></p>
-    </div>
-</div>
+    <div class="review-popup-overlay" id="reviewPopup">
+        <div class="review-popup">
+          <h2>Leave Us a Review</h2>
+          <textarea id="reviewText" placeholder="We’d love to hear your thoughts!"></textarea>
+          <div class="buttons">
+            <button class="submit-btn" onclick="submitReview()">Submit</button>
+            <button class="close-btn" onclick="closeReviewPopup()">Close</button>
+          </div>
+        </div>
+      </div>
+
+
 
 
 
@@ -662,7 +964,7 @@
             <li class="nav-item"><a class="nav-link" href="location.html">Visit Us!</a></li>
             <li class="nav-item"><a class="nav-link" href="reservations.html">Make a Reservation</a></li>
             <li class="nav-item"><a class="nav-link" href="events&news.html">Events & News</a></li>
-            <li class="nav-item"><a class="nav-link" href="reference.html">References</a></li>
+            <li class="nav-item"><a class="nav-link" href="reference.html">Reference Page</a></li>
 
 
          </ul>
@@ -710,6 +1012,7 @@
 
 
 
+  
 
  
  
@@ -779,6 +1082,15 @@
                         <p class="text-muted">@Jacob Smith · 2 weeks ago</p>
                     </div>
                 </div>
+
+                <div class="static-stars">
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+
                 <div class="review-body">
                     <p>Amorantha is a gem! The fusion of Indian and Mexican flavors is mind-blowing. The vegan options are delicious, and the ambiance is so cozy. Highly recommend!</p>
                 </div>
@@ -796,6 +1108,15 @@
                         <p class="text-muted">@Pooja Patel · 1 month ago</p>
                     </div>
                 </div>
+
+                <div class="static-stars">
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                </div>
+
                 <div class="review-body">
                     <p>I love the farm-to-table concept here. The food is fresh, flavorful, and ethically sourced. The staff is super friendly too. Will definitely come back!</p>
                 </div>
@@ -813,6 +1134,16 @@
                         <p class="text-muted">@Juliana Martinez · 3 weeks ago</p>
                     </div>
                 </div>
+        
+                <!-- ⭐ Static Star Rating -->
+                <div class="static-stars">
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                    <span class="star filled">&#9733;</span>
+                </div>
+        
                 <div class="review-body">
                     <p>The vegan tacos are out of this world! The combination of spices and textures is perfect. Amorantha has become my go-to spot for a healthy, delicious meal.</p>
                 </div>
@@ -839,11 +1170,42 @@
 
     <p class="footer-note-xyz123">TSA24-25 Webmaster</p>
 </footer>
+<!-- Newsletter Floating Icon -->
+<div id="newsletter-icon" onclick="openNewsletterPopup()">
+    <img src="NewsletterIcon.png" alt="Newsletter" />
+  </div>
+  
+  <!-- Newsletter Modal -->
+  <div id="newsletter-popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeNewsletterPopup()">&times;</span>
+      <h2>- Join Our Newsletter -</h2>
+      <p>Subscribe to our newsletter to receive updates on our latest dishes and promotions!</p>
+      
+      <form>
+        <input type="text" placeholder="Enter your name" required />
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+        <button type="button" onclick="closeNewsletterPopup()">Close</button>
+      </form>
+    </div>
+  </div>
 
 <div id="weird-feedback-container-xyz123" class="modal-xyz123">
     <div class="modal-content-xyz123">
         <span class="close-btn-xyz123" onclick="closeWeirdFeedback()">&times;</span>
         <h2>Leave Feedback</h2>
+        <input type="text" id="weird-feedback-name-xyz123" placeholder="Name (First, Last)" required>
+    
+        <!-- Star Rating -->
+        <div class="star-rating-xyz123">
+            <span class="star" data-rating="1">&#9733;</span>
+            <span class="star" data-rating="2">&#9733;</span>
+            <span class="star" data-rating="3">&#9733;</span>
+            <span class="star" data-rating="4">&#9733;</span>
+            <span class="star" data-rating="5">&#9733;</span>
+        </div>
+    
         <textarea id="weird-feedback-input-xyz123" placeholder="Write your review here..."></textarea>
         <button class="submit-btn-xyz123" onclick="submitWeirdFeedback()">Submit</button>
     </div>
@@ -856,6 +1218,80 @@
    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
    <script>
+
+     // Stop bounce after 5 seconds
+  window.onload = function () {
+    setTimeout(() => {
+      document.getElementById("newsletter-icon").style.animation = "none";
+    }, 5000);
+  };
+
+  function openNewsletterPopup() {
+    document.getElementById("newsletter-popup").style.display = "block";
+  }
+
+  function closeNewsletterPopup() {
+    document.getElementById("newsletter-popup").style.display = "none";
+  }
+
+function openNewsletterPopup() {
+    document.getElementById('newsletter-popup').style.display = 'block';
+  }
+
+  function closeNewsletterPopup() {
+    document.getElementById('newsletter-popup').style.display = 'none';
+  }
+
+
+
+let selectedRating = 0;
+
+const stars = document.querySelectorAll('.star-rating-xyz123 .star');
+
+stars.forEach(star => {
+    const rating = star.getAttribute('data-rating');
+
+    // Hover effects
+    star.addEventListener('mouseover', () => {
+        highlightStars(rating);
+    });
+
+    star.addEventListener('mouseout', () => {
+        highlightStars(selectedRating);
+    });
+
+    // Click to select rating
+    star.addEventListener('click', () => {
+        selectedRating = rating;
+        highlightStars(selectedRating);
+    });
+});
+
+function highlightStars(rating) {
+    stars.forEach(star => {
+        const starRating = star.getAttribute('data-rating');
+        star.classList.toggle('hovered', starRating <= rating);
+        star.classList.toggle('selected', starRating <= selectedRating);
+    });
+}
+
+function submitWeirdFeedback() {
+    const name = document.getElementById('weird-feedback-name-xyz123').value;
+    const review = document.getElementById('weird-feedback-input-xyz123').value;
+    console.log("Name:", name);
+    console.log("Review:", review);
+    console.log("Rating:", selectedRating);
+    alert("Thanks for your feedback!");
+}
+
+function submitWeirdFeedback() {
+    const name = document.getElementById('weird-feedback-name-xyz123').value;
+    const review = document.getElementById('weird-feedback-input-xyz123').value;
+    console.log("Name:", name);
+    console.log("Review:", review);
+    console.log("Rating:", selectedRating);
+    // Add your form handling logic here
+}
 
 function openWeirdFeedback() {
         document.getElementById("weird-feedback-container-xyz123").style.display = "block";
@@ -914,7 +1350,6 @@ function sendEmail() {
 
 
 
-       gsap.registerPlugin(ScrollTrigger);
 
 
 
@@ -1141,7 +1576,27 @@ gsap.utils.toArray('.parallax-section').forEach(section => {
 
    </script>
 
-
+<script>
+    function openReviewPopup() {
+      document.getElementById('reviewPopup').classList.add('show');
+    }
+  
+    function closeReviewPopup() {
+      document.getElementById('reviewPopup').classList.remove('show');
+    }
+  
+    function submitReview() {
+      const text = document.getElementById('reviewText').value;
+      if (text.trim()) {
+        alert("Thanks for your review!");
+        // Here you could also send it to a backend or store in localStorage
+        document.getElementById('reviewText').value = '';
+        closeReviewPopup();
+      } else {
+        alert("Please write something before submitting.");
+      }
+    }
+  </script>
 
 
 </body>
